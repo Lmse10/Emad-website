@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imad - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 25px;
+            opacity: 0.9;
+        }
+        
+        .personal-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 200px;
+        }
+        
+        .info-card strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        section {
+            padding: 40px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #6a11cb;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #2575fc;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #444;
+        }
+        
+        .education-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .education-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            border-top: 4px solid #6a11cb;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+        }
+        
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .education-card h3 {
+            color: #6a11cb;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        
+        .skill {
+            background: #eef2ff;
+            padding: 10px 20px;
+            border: 1px solid #d0d8ff;
+            font-weight: 600;
+            color: #6a11cb;
+            border-radius: 4px;
+        }
+        
+        .languages-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .language-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #2575fc;
+        }
+        
+        .language-card h3 {
+            color: #2575fc;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .language-card ul {
+            list-style-type: none;
+        }
+        
+        .language-card li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .language-card li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #6a11cb;
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #666;
+            background: #f1f5fe;
+            font-size: 1rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            display: inline-block;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            section {
+                padding: 30px 20px;
+            }
+            
+            .personal-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .info-card {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+    <a href="index1.html">Home</a>
+    <a href="css1.html">About</a>
+    <a href="portfolio.html">Portolio</a>
+  </nav>
+    <div class="container">
+        <header>
+            <h1>Imad</h1>
+            <p class="tagline">Computer Science Student | Web Developer | Multilingual Professional</p>
+            
+            <div class="personal-info">
+                <div class="info-card">
+                    <strong>Born & Raised</strong>
+                    Saudi Arabia
+                </div>
+                <div class="info-card">
+                    <strong>Date of Birth</strong>
+                    August 8, 2006
+                </div>
+                <div class="info-card">
+                    <strong>Languages Known</strong>
+                    3 Verbal
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <section id="about">
+                <div class="section-title">
+                    <h2>About Me</h2>
+                </div>
+                <div class="about-content">
+                    <p>I'm a Computer Science and Business Systems student with a multicultural background. Born and raised in Saudi Arabia, I've developed a passion for technology and problem-solving from an early age.</p>
+                    <p>My expertise includes web development, programming in multiple languages, and creating solutions that bridge technical and business requirements. I'm currently pursuing my degree while expanding my skills in both technology and languages.</p>
+                    <p>With fluency in three languages, I bring a global perspective to my work and collaborations. I'm committed to continuous learning and applying technology to solve real-world challenges.</p>
+                </div>
+            </section>
+            
+            <section id="education">
+                <div class="section-title">
+                    <h2>Education</h2>
+                </div>
+                <div class="education-container">
+                    <div class="education-card">
+                        <h3>Prestige International School</h3>
+                        <p>Early Schooling</p>
+                        <p>Completed foundational education with focus on sciences and technology</p>
+                    </div>
+                    <div class="education-card">
+                        <h3>Canara Institution</h3>
+                        <p>11th & 12th Grade</p>
+                        <p>Specialized in Computer Science</p>
+                        <p>Developed programming fundamentals</p>
+                    </div>
+                    <div class="education-card">
+                        <h3>Bachelor's Degree</h3>
+                        <p>Computer Science and Business Systems (CSBS)</p>
+                        <p>Currently pursuing</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="skills">
+                <div class="section-title">
+                    <h2>Technical Skills</h2>
+                </div>
+                <div class="skills-container">
+                    <div class="skill">HTML/CSS</div>
+                    <div class="skill">JavaScript</div>
+                    <div class="skill">C Programming</div>
+                    <div class="skill">XML</div>
+                    <div class="skill">Web Development</div>
+                    <div class="skill">Problem Solving</div>
+                    <div class="skill">Debugging</div>
+                </div>
+            </section>
+            
+            <section id="languages">
+                <div class="section-title">
+                    <h2>Language Proficiency</h2>
+                </div>
+                <div class="languages-container">
+                    <div class="language-card">
+                        <h3>Verbal Languages</h3>
+                        <ul>
+                            <li>Arabic (Native proficiency)</li>
+                            <li>English (Professional proficiency)</li>
+                            <li>Hindi/Urdu (Fluent)</li>
+                        </ul>
+                    </div>
+                    <div class="language-card">
+                        <h3>Programming Languages</h3>
+                        <ul>
+                            <li>HTML/CSS (Advanced)</li>
+                            <li>JavaScript (Intermediate)</li>
+                            <li>C Programming (Intermediate)</li>
+                            <li>XML (Proficient)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>Imad's Portfolio | Computer Science & Business Systems Student</p>
+        </footer>
+    </div>
+</body>
+</html>
